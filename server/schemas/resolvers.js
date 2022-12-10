@@ -4,8 +4,8 @@ const { AuthenticationError } = require('apollo-server-express');
 
 module.exports = {
     Query: {
-        allCocktails: async () => {
-            return await Cocktail.find();
+        searchCocktails: async (parent, args) => {
+            return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } });
         }
     },
     Mutation: {

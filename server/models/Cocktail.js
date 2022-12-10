@@ -7,9 +7,6 @@ const cocktailSchema = new Schema(
             required: true,
             unique: true,
         }, 
-        directions: {
-            type: String
-        },
         reviews: [reviewSchema],
         alcoholic: {
             type: String

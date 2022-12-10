@@ -31,7 +31,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        allCocktails: Cocktail
+        searchCocktails(search: String): [Cocktail]
     }
 
     type Mutation {

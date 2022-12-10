@@ -14,6 +14,17 @@ module.exports = {
             const token = signToken(user);
 
             return {token, user};
+        },
+        login: async (parent, args) => {
+            const user = await User.findOne({username: args.username});
+            if(!user) {
+                throw new AuthenticationError('No user with this username found!');
+            }
+            if(!(await user.comparePassword(args.password))){
+                throw new AuthenticationError('Incorrect password!');
+            }
+            const token = signToken(user);
+            return {token, user};
         }
     }
 }

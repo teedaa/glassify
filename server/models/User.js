@@ -12,7 +12,7 @@ const userSchema = new Schema(
         password: {
             type: String,
             required: true,
-            match: [/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?\/~_+-=|\]).{8,32}$/, 'Must use a valid password'], // regex password validator
+            match: [/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Must use a valid password'], // regex password validator
         },
         savedCocktails: [{
             type: Schema.Types.ObjectId,

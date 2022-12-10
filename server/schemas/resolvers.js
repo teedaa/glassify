@@ -40,6 +40,13 @@ module.exports = {
             }
             const user = await User.findByIdAndUpdate(context.user._id, { $addToSet : {savedCocktails: args.cocktailId }}, { new: true }).populate('savedCocktails');
             return user;
+        },
+        removeCocktail: async (parent, args, context) => {
+            if (!context.user) {
+                throw new AuthenticationError('Log in to use this query');
+            }
+            const user = await User.findByIdAndUpdate(context.user._id, { $pull : {savedCocktails: args.cocktailId }}, { new: true }).populate('savedCocktails');
+            return user;
         }
     }
 }

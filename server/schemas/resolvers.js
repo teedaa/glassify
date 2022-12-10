@@ -1,6 +1,7 @@
 const { User, Cocktail } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
+const { Types } = require('mongoose');
 
 module.exports = {
     Query: {
@@ -32,6 +33,13 @@ module.exports = {
             }
             const token = signToken(user);
             return {token, user};
+        },
+        saveCocktail: async (parent, args, context) => {
+            if (!context.user) {
+                throw new AuthenticationError('Log in to use this query');
+            }
+            const user = await User.findByIdAndUpdate(context.user._id, { $addToSet : {savedCocktails: args.cocktailId }}, { new: true }).populate('savedCocktails');
+            return user;
         }
     }
 }

@@ -16,7 +16,8 @@ const userSchema = new Schema(
         },
         savedCocktails: [{
             type: Schema.Types.ObjectId,
-            reference: 'Cocktail'
+            ref: 'Cocktail',
+            unique: true
         }]
     },
     {

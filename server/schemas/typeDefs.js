@@ -28,6 +28,7 @@ const typeDefs = gql`
         writer: String
         content: String
         stars: Int
+        _id: ID
     }
 
     type Query {
@@ -40,7 +41,8 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         saveCocktail(cocktailId: ID!): User
         removeCocktail(cocktailId: ID!): User
-        addReview(cocktailId: ID!, content: String!, stars: Int): Cocktail
+        addReview(cocktailId: ID!, content: String!, stars: Int!): Cocktail
+        removeReview(cocktailId: ID!, reviewId: ID!): Cocktail
     }
 `;
 

@@ -58,6 +58,15 @@ module.exports = {
                 stars: args.stars,
             }}}, { new: true });
             return cocktail;
+        },
+        removeReview: async (parent, args, context) => {
+            if (!context.user) {
+                throw new AuthenticationError('Log in to use this query');
+            }
+            const cocktail = await Cocktail.findByIdAndUpdate(args.cocktailId, { $pull : {reviews: {
+                _id: args.reviewId
+            }}}, { new: true });
+            return cocktail;
         }
     }
 }

@@ -6,6 +6,13 @@ module.exports = {
     Query: {
         searchCocktails: async (parent, args) => {
             return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } });
+        },
+        user: async (parent, args, context) => {
+            if (!context.user) {
+                throw new AuthenticationError('Log in to use this query');
+            }
+            const user = await User.findById(context.user._id).populate('savedCocktails');
+            return user;
         }
     },
     Mutation: {

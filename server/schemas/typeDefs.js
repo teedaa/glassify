@@ -40,6 +40,7 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         saveCocktail(cocktailId: ID!): User
         removeCocktail(cocktailId: ID!): User
+        addReview(cocktailId: ID!, content: String!, stars: Int): Cocktail
     }
 `;
 

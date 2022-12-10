@@ -47,6 +47,17 @@ module.exports = {
             }
             const user = await User.findByIdAndUpdate(context.user._id, { $pull : {savedCocktails: args.cocktailId }}, { new: true }).populate('savedCocktails');
             return user;
+        },
+        addReview: async (parent, args, context) => {
+            if (!context.user) {
+                throw new AuthenticationError('Log in to use this query');
+            }
+            const cocktail = await Cocktail.findByIdAndUpdate(args.cocktailId, {$push: {reviews: {
+                writer: context.user.username,
+                content: args.content,
+                stars: args.stars,
+            }}}, { new: true });
+            return cocktail;
         }
     }
 }

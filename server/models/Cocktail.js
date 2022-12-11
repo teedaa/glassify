@@ -19,7 +19,10 @@ const cocktailSchema = new Schema(
         },
         ingredients: [{
             type: String
-        }]
+        }],
+        image: {
+            type: String
+        }
     },
     {
         toJSON: {

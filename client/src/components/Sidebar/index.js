@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Drawer, Button, Group } from '@mantine/core';
 
-function sidebar() {
+function Sidebar() {
     const [opened, setOpened] = useState(false);
 
     return (
@@ -22,3 +22,5 @@ function sidebar() {
         </>
     );
 }
+
+export default Sidebar;

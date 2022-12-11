@@ -9,11 +9,14 @@ function Sidebar() {
         <Drawer
             opened={opened}
             onClose={() => setOpened(false)}
-            title="Register"
+            title="Saved Drinks"
+            position="left"
             padding="xl"
-            size="xl"
+            size="25%"
         >
-            {/* Drawer content */}
+            {
+            /* Drawer content */
+            }
         </Drawer>
 
         <Group position="center">

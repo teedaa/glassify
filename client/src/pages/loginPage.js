@@ -1,3 +1,4 @@
+import Auth from '../utils/auth';
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
 import {
@@ -10,6 +11,7 @@ import {
   Anchor,
   Stack,
 } from '@mantine/core';
+import { logMissingFieldErrors } from '@apollo/client/core/ObservableQuery';
 
 export function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
@@ -25,6 +27,24 @@ export function AuthenticationForm(props) {
     },
   });
 
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    if (type === 'login'){
+      try {
+        const { data } = await login({
+          variables: {
+            username: form.values.username,
+            password: form.values.password
+          }
+        });
+        Auth.login(data.login.token);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+  
   return (
     <div>
     <Paper radius="md" p="xl" withBorder {...props}>
@@ -33,7 +53,7 @@ export function AuthenticationForm(props) {
       </Text>
 
 
-      <form onSubmit={form.onSubmit(() => {})}>
+      <form onSubmit={ handleFormSubmit }>
         <Stack>
   
 

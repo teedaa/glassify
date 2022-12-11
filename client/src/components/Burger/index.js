@@ -7,9 +7,9 @@ function Burger() {
 
     return (
         <Burger
-        opened={opened}
-        onClick={() => setOpened((o) => !o)}
-        title={title}
+            opened={drawerOpened}
+            onClick={toggleDrawer}
+            title={title}
         />
     );
 }

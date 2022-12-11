@@ -16,7 +16,7 @@ const typeDefs = gql`
     type Cocktail {
         _id: ID
         name: String
-        directions: String
+        image: String
         reviews: [Review]
         alcoholic: String
         glass: String

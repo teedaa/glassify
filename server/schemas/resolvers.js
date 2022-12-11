@@ -32,6 +32,7 @@ module.exports = {
                 throw new AuthenticationError('Incorrect password!');
             }
             const token = signToken(user);
+            console.log(token)
             return {token, user};
         },
         saveCocktail: async (parent, args, context) => {

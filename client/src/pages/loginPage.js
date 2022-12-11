@@ -11,10 +11,14 @@ import {
   Anchor,
   Stack,
 } from '@mantine/core';
-import { logMissingFieldErrors } from '@apollo/client/core/ObservableQuery';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from "../utils/mutations";
+
+
 
 export function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
+  const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
   const form = useForm({
     initialValues: {
       username: '',

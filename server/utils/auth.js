@@ -11,9 +11,11 @@ module.exports = {
           token = token.split(' ').pop().trim();
         }
 
+
         if (!token) {
           return req;
         }
+   
     
         try {
           const { data } = jwt.verify(token, process.env.SECRET, { maxAge: expiration });
@@ -25,7 +27,8 @@ module.exports = {
         return req;
     },
     signToken: function ({ username, _id }) {
-        const payload = { username, _id };
+      console.log(username, _id)
+        const payload = { username, _id }
         return jwt.sign({ data: payload }, process.env.SECRET, { expiresIn: expiration });
     }
 }

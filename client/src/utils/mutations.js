@@ -125,3 +125,22 @@ mutation addReview($cocktailId: ID!, $content: String!, $stars: Int!) {
   }
 }
 `;
+
+export const REMOVE_REVIEW = gql`
+mutation removeReview($cocktailId: ID!, $reviewId:ID!) {
+  removeReview(cocktailId: $cocktailId, reviewId: $reviewId) {
+    _id
+    alcoholic
+    glass
+    ingredients
+    instructions
+    name
+    reviews {
+      _id
+      writer
+      stars
+      content
+    }
+  }
+}
+`;

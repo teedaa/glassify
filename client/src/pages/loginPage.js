@@ -13,11 +13,17 @@ import {
 } from '@mantine/core';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from "../utils/mutations";
-
+// import { useLocation } from 'react-router-dom';
 
 
 export function AuthenticationForm(props) {
+  // const location = useLocation()
+  // const from = location.state?.from || '';
   const [type, toggle] = useToggle(['login', 'register']);
+  // if (from === 'register') {
+  //   toggle();
+  // }
+  
   const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
   const form = useForm({
     initialValues: {

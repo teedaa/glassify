@@ -72,7 +72,7 @@ export function AuthenticationForm(props) {
       </Text>
 
 
-      <form onSubmit={ handleFormSubmit }>
+      <form onSubmit={ form.onSubmit(handleFormSubmit)}>
         <Stack>
   
 
@@ -82,7 +82,7 @@ export function AuthenticationForm(props) {
             placeholder="Glassify User"
             value={form.values.username}
             onChange={(event) => form.setFieldValue('username', event.currentTarget.value)}
-            error={form.errors.username && 'Invalid username'}
+            error={form.errors.username && 'Username must be at least 4 characters.'}
           />
 
           <PasswordInput
@@ -91,7 +91,7 @@ export function AuthenticationForm(props) {
             placeholder="Your password"
             value={form.values.password}
             onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
-            error={form.errors.password && 'Password requires minimum eight characters, at least one letter, one number and one special character.'}
+            error={form.errors.password && 'Password requires minimum eight characters, at least one letter, one number, and one special character. (Special characters include @$!%*#?&)'}
           />
 
           

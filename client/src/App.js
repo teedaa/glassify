@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthenticationForm } from './pages/loginPage';
 import { Homepage } from './pages/homepage';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { DrinkPage } from './pages/drinkPage';
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
@@ -51,6 +51,11 @@ function App() {
           <Route 
           path="/login" 
           element={<AuthenticationForm />}
+          />
+
+          <Route 
+          path="/drink/:drinkid"
+          element={<DrinkPage />}
           />
 
         </Routes>

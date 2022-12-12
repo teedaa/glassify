@@ -17,7 +17,7 @@ import {
         <Header height={60} px="md">
           <Group position="apart" sx={{ height: '100%' }}>
             <img src={Logo} alt="Glassfiy logo" className='logo'/>
-            <Group >
+            <Group >     
               <Button variant="default">Log in</Button>
               <Button>Sign up</Button>
             </Group>

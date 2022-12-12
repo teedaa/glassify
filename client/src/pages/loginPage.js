@@ -12,13 +12,14 @@ import {
   Stack,
 } from '@mantine/core';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN_USER, CREATE_USER } from "../utils/mutations";
 
 
 
 export function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
   const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
+  const [register, { registerError, registerData }] = useMutation(CREATE_USER);
   const form = useForm({
     initialValues: {
       username: '',
@@ -34,7 +35,7 @@ export function AuthenticationForm(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    if (type === 'login'){
+    if (type === 'login') {
       try {
         const { data } = await login({
           variables: {
@@ -42,12 +43,26 @@ export function AuthenticationForm(props) {
             password: form.values.password
           }
         });
+        // if token is invalid, display text somewhere that the user provided doesnt exist
         Auth.login(data.login.token);
         } catch (e) {
           console.error(e);
         }
-      }
-    }
+    } else if (type === 'register') {
+      try {
+        const { data } = await register({
+          variables: {
+            username: form.values.username,
+            password: form.values.password
+          }
+        });
+        // if token is invalid, display text somewhere that the user provided doesnt exist
+        Auth.login(data.createUser.token);
+        } catch (e) {
+          console.error(e);
+        }
+    } 
+  }
   
   return (
     <div>

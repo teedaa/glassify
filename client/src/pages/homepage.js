@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav } from "../components/Nav";
 import { useQuery, useMutation } from '@apollo/client';
-import { SEARCH_SINGLE_COCKTAIL, USER } from '../utils/mutations'
+import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL } from '../utils/mutations'
 import Auth from '../utils/auth';
   
   export function Homepage() {
@@ -28,7 +28,21 @@ import Auth from '../utils/auth';
       console.log("to see user data, log in")
     }
 
-    const [saveCocktail, {error: saveError, data: saveData}]
+    const [saveCocktail, {error: saveError, data: saveData}] = useMutation(SAVE_COCKTAIL);
+
+    const saveCocktailFunction = async (cocktailId) => {
+      const { data } = await saveCocktail({
+        variables: {
+          cocktailId
+        }
+      });
+
+      console.log( "saved drink mutation returns => ", data);
+    }
+
+    if(Auth.loggedIn()) {
+      // saveCocktailFunction("63954552ead381f1df602e16"); //eventually replace the hard coded string with the cocktail ID we want to save to logged in user
+    }
 
     return (
         <>

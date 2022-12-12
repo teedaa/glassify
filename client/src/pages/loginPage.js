@@ -12,13 +12,10 @@ import {
   Stack,
 } from '@mantine/core';
 import { useMutation } from '@apollo/client';
-<<<<<<< HEAD
+
 import { LOGIN_USER } from "../utils/mutations";
 // import { useLocation } from 'react-router-dom';
-=======
-import { LOGIN_USER, CREATE_USER } from "../utils/mutations";
 
->>>>>>> 8b01ea2190739785f4dec74e2cb9b0c10b7951ae
 
 
 export function AuthenticationForm(props) {

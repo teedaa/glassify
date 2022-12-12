@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Drawer, Button, Group } from '@mantine/core';
+import { Drawer, Button, Group, ScrollArea } from '@mantine/core';
 import { BurgerComponent } from './Burger';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -27,16 +27,19 @@ export function Sidebar() {
             padding="xl"
             size="25%"
         >
-            {
-            /* Drawer content */
-                // <h3>Saved List or Ingredients List</h3>
-            }
-            <Group position="center">
-                <Button onClick={() => toggleTitle() }>Toggle Sidebar Content</Button>
-            </Group>
+            <stack>
+                <container>
+                    <ScrollArea.Autosize maxHeight={250} sx={{maxWidth: 400}} mx="auto">
+                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </ScrollArea.Autosize>
+                </container>
+                <Group position="center">
+                    <Button onClick={() => toggleTitle() }>Toggle Sidebar Content</Button>
+                </Group>
+            </stack>
         </Drawer>
 
-        <Group position="center">
+        <Group position="center" mb="0">
             <Button onClick={() => setOpened(true)}>Open Drawer</Button>
         </Group>
         

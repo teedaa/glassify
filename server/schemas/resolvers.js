@@ -8,6 +8,9 @@ module.exports = {
         searchCocktails: async (parent, args) => {
             return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } }).limit(20);
         },
+        searchSingleCocktail: async (parent, args) => {
+            return await Cocktail.findById(args.cocktailId).populate('reviews');
+        },
         user: async (parent, args, context) => {
             if (!context.user) {
                 throw new AuthenticationError('Log in to use this query');

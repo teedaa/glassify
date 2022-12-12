@@ -33,6 +33,7 @@ const typeDefs = gql`
 
     type Query {
         searchCocktails(search: String): [Cocktail]
+        searchSingleCocktail(cocktailId: ID!): Cocktail
         user: User
     }
 

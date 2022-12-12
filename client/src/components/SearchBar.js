@@ -19,7 +19,6 @@
 
 
 import { Button, Drawer, Group, Input, TextInput, Transition } from "@mantine/core";
-import { GitHubLogoIcon, NotionLogoIcon } from "@modulz/radix-icons";
 import { useState } from "react";
   
   function InputExample() {

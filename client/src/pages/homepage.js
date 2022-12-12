@@ -1,9 +1,8 @@
 import React from "react";
 import { Nav } from "../components/Nav";
-import { Input } from "@mantine/core";
-import {searchBar} from "..components/searchBar.js"
+// import { Input } from "@mantine/core";
+import {searchBar} from "../components/SearchBar"
   
- 
   
   export function Homepage() {
   
@@ -13,4 +12,10 @@ import {searchBar} from "..components/searchBar.js"
         <Nav />
         </>
     )
+    return (
+        <>
+        <searchBar />
+        </>
+    )
+    
   }

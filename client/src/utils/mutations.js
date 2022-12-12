@@ -84,3 +84,25 @@ mutation saveCocktail($cocktailId: ID!) {
   }
 }
 `;
+
+export const REMOVE_COCKTAIL = gql`
+mutation removeocktail($cocktailId: ID!) {
+  removeCocktail(cocktailId: $cocktailId) {
+    _id
+    savedCocktails {
+      _id
+      alcoholic
+      glass
+      ingredients
+      instructions
+      name
+      reviews {
+        writer
+        stars
+        content
+      }
+    }
+    username
+  }
+}
+`;

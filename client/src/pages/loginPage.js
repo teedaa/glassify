@@ -23,8 +23,8 @@ export function AuthenticationForm(props) {
   const [type, toggle] = useToggle(['login', 'register']);
 
   
-  const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
-  const [register, { registerError, registerData }] = useMutation(CREATE_USER);
+  const [login, { error: loginError, data: loginData }] = useMutation(LOGIN_USER);
+  const [register, { error: registerError, data: registerData }] = useMutation(CREATE_USER);
   const form = useForm({
     initialValues: {
       username: '',

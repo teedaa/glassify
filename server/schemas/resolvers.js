@@ -6,7 +6,7 @@ const { Types } = require('mongoose');
 module.exports = {
     Query: {
         searchCocktails: async (parent, args) => {
-            return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } });
+            return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } }).limit(20);
         },
         user: async (parent, args, context) => {
             if (!context.user) {

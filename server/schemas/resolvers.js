@@ -6,7 +6,10 @@ const { Types } = require('mongoose');
 module.exports = {
     Query: {
         searchCocktails: async (parent, args) => {
-            return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } });
+            return await Cocktail.find({ 'name': { $regex: '^' + args.search, $options: 'i' } }).limit(20);
+        },
+        searchSingleCocktail: async (parent, args) => {
+            return await Cocktail.findById(args.cocktailId).populate('reviews');
         },
         user: async (parent, args, context) => {
             if (!context.user) {
@@ -32,7 +35,6 @@ module.exports = {
                 throw new AuthenticationError('Incorrect password!');
             }
             const token = signToken(user);
-            console.log(token)
             return {token, user};
         },
         saveCocktail: async (parent, args, context) => {

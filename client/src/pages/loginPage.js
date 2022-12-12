@@ -13,7 +13,7 @@ import {
 } from '@mantine/core';
 import { useMutation } from '@apollo/client';
 
-import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN_USER, CREATE_USER } from "../utils/mutations";
 // import { useLocation } from 'react-router-dom';
 
 

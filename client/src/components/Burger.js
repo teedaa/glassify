@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Burger } from '@mantine/core';
 
-function Burger() {
+function BurgerComponent() {
     const [opened, setOpened] = useState(false);
     const title = opened ? 'Close sidebar' : 'Open sidebar';
 
@@ -14,4 +14,4 @@ function Burger() {
     );
 }
 
-export default Burger;
+export default BurgerComponent;

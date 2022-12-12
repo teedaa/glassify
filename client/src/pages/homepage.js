@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav } from "../components/Nav";
 import { useQuery, useMutation } from '@apollo/client';
-import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL, REMOVE_COCKTAIL } from '../utils/mutations'
+import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL, REMOVE_COCKTAIL, ADD_REVIEW } from '../utils/mutations'
 import Auth from '../utils/auth';
   
   export function Homepage() {
@@ -68,11 +68,32 @@ import Auth from '../utils/auth';
       // removeCocktailFunction("63954552ead381f1df602e16"); //eventually replace the hard coded string with the cocktail ID we want to remove from logged in user
     }
 
+    // ------------------ ADD REVIEW TO COCKTAIL BY ID ------------------
+
+    const [addReview, {error: addReviewError, data: addReviewData}] = useMutation(ADD_REVIEW);
+
+    const addReviewFunction = async (cocktailId, content, stars) => {
+      const { data } = await addReview({
+        variables: {
+          cocktailId,
+          content,
+          stars
+        }
+      });
+
+      console.log( "add review mutation returns => ", data);
+    }
+
+    if(Auth.loggedIn()) {
+      // addReviewFunction("63954552ead381f1df602e16", "this drink is hella dope", 5); //eventually replace the hard coded data with variables
+    }
 
     return (
         <>
         <Nav />
-
+        <button onClick={() => saveCocktailFunction("63954552ead381f1df602e16")}> Save Cocktail Test</button>
+        <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button>
+        <button onClick={() => addReviewFunction("63954552ead381f1df602e16", "this drink is hella dope bro", 5)}> Add Review Test</button>
         </>
     )
   }

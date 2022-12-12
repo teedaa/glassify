@@ -106,3 +106,22 @@ mutation removeocktail($cocktailId: ID!) {
   }
 }
 `;
+
+export const ADD_REVIEW = gql`
+mutation addReview($cocktailId: ID!, $content: String!, $stars: Int!) {
+  addReview(cocktailId: $cocktailId, content: $content, stars: $stars) {
+    _id
+    alcoholic
+    glass
+    ingredients
+    instructions
+    name
+    reviews {
+      _id
+      writer
+      stars
+      content
+    }
+  }
+}
+`;

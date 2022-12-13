@@ -1,4 +1,6 @@
-
+.text{
+  font-family: 'Montserrat', sans-serif;
+}
 
 .App {
   text-align: center;
@@ -45,6 +47,10 @@
 
 .checked {
   color: orange;
+}
+
+.footerlogo {
+  height:100px;
 }
 
 .invalid-credentials {

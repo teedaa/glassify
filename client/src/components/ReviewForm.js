@@ -21,6 +21,7 @@ export function ReviewForm() {
         }
       });
       console.log(data)
+      form.reset();
     } catch (error) {
       console.error(error);
     }

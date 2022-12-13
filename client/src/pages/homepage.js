@@ -4,6 +4,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL, REMOVE_COCKTAIL, ADD_REVIEW, REMOVE_REVIEW } from '../utils/mutations'
 import Auth from '../utils/auth';
 import {SearchBar} from "../components/SearchBar"
+import { Footer }  from "../components/Footer";
   
   
   export function Homepage() {
@@ -118,6 +119,7 @@ import {SearchBar} from "../components/SearchBar"
         <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button>
         <button onClick={() => addReviewFunction("63954552ead381f1df602e16", "this drink is hella dope bro", 5)}> Add Review Test</button>
         <button onClick={() => removeReviewFunction("63954552ead381f1df602e16", "63978f31ff02812beaf2d307")}> Remove Review Test</button> */}
+        <Footer />
         </>
     )
   }

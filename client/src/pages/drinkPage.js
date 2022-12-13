@@ -1,15 +1,6 @@
 import React from "react";
 import { Nav } from "../components/Nav";
-<<<<<<< HEAD
 import { SingleDrink } from "../components/SingleDrink";
-=======
-import { useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { SEARCH_SINGLE_COCKTAIL, REMOVE_REVIEW } from "../utils/mutations";
-import { Container } from '@mantine/core'
-import { ReviewForm } from '../components/ReviewForm';
-import Auth from "../utils/auth";
->>>>>>> ad542ba983480ea41868263fc27276c3dcee0748
 
 
 export function DrinkPage() {
@@ -82,42 +73,8 @@ export function DrinkPage() {
 
     return(
         <>
-<<<<<<< HEAD
         <Nav/>
         <SingleDrink/>
-=======
-            <Nav/>
-            {singleCocktailLoading ? (
-                <Container>
-                    Cocktail Data is loading
-                </Container>
-
-            ) : (
-                <>
-                    <Container>
-                        <h2>Cocktail Info</h2>
-                        <h3>Name: {singleCocktailData.searchSingleCocktail.name}</h3>
-                        <h3>Type: {singleCocktailData.searchSingleCocktail.alcoholic}</h3>
-                        <h3>Glass: {singleCocktailData.searchSingleCocktail.glass}</h3>
-                        <h3>Ingredients:</h3>
-                        <ul>{ingredientsList}</ul>
-                        <h3>Instructions: {singleCocktailData.searchSingleCocktail.instructions}</h3>
-
-                        <img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img>
-                    </Container>
-                    <Container>
-                        <h2>Reviews area</h2>
-
-                        {reviews}
-                    </Container>
-                    <Container>
-                        <h2>Create Review area</h2>
-                        <ReviewForm />
-                        
-                    </Container>
-                </>
-            )}
->>>>>>> ad542ba983480ea41868263fc27276c3dcee0748
         </>
     )
 }

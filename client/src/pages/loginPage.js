@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Auth from '../utils/auth';
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
@@ -19,6 +20,7 @@ import { LOGIN_USER, CREATE_USER } from "../utils/mutations";
 
 
 export function AuthenticationForm(props) {
+  const [invalidCredentials, setInvalidCredentials] = useState(false);
 
   const [type, toggle] = useToggle(['login', 'register']);
 
@@ -51,7 +53,8 @@ export function AuthenticationForm(props) {
           // if token is invalid, display text somewhere that the user provided doesnt exist
           Auth.login(data.login.token);
         } catch (e) {
-          console.error(e);
+          setInvalidCredentials(true);
+          // console.error(e);
         }
       } else if (type === 'register') {
         try {
@@ -64,7 +67,7 @@ export function AuthenticationForm(props) {
           // if token is invalid, display text somewhere that the user provided doesnt exist
           Auth.login(data.createUser.token);
         } catch (e) {
-          console.error(e);
+          // console.error(e);
         }
       } 
     
@@ -76,6 +79,12 @@ export function AuthenticationForm(props) {
       <Text size="lg" weight={500}>
         Welcome to Glassify, please {type} 
       </Text>
+
+      {invalidCredentials ? (
+        <h2 className='invalid-credentials'>Invalid Credentials</h2>
+      ) : (
+        <h2 className='invalid-credentials visibility-hidden'>Invalid Credentials</h2>
+      )}
 
 
       <form onSubmit={form.onSubmit((values, event)=> { handleFormSubmit(event); })}>

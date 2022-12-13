@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Drawer, Button, Group, ScrollArea, Stack } from '@mantine/core';
-import { BurgerComponent } from './Burger';
-import { useDisclosure } from '@mantine/hooks';
+// import { BurgerComponent } from './Burger';
+// import { useDisclosure } from '@mantine/hooks';
 import { SavedDrinkCard } from './SavedDrinkCard';
 
 const drinkList = "This is the saved drinks list";
@@ -41,7 +41,7 @@ export function Sidebar() {
             size="25%"
         >
             <Stack justify="flex-start">
-                <ScrollArea.Autosize maxHeight={500} sx={{maxWidth: 400}} mx="auto">
+                <ScrollArea.Autosize maxHeight={500} sx={{maxWidth: 500}} mx="auto" offsetScrollbars>
                     <p>{content}</p>
                     <SavedDrinkCard />
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>                      

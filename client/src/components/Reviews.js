@@ -1,8 +1,10 @@
 import React from 'react';
-import { useMutation } from '@apollo/client';
 import { REMOVE_REVIEW } from "../utils/mutations";
+import { Card, Container, Button } from '@mantine/core'
+import { useMutation } from '@apollo/client';
+import Auth from "../utils/auth";
 
-export function Reviews ({cocktailId}) {
+export function Reviews ({cocktailId, singleCocktailLoading, singleCocktailData}) {
 
     const [removeReview, {error: removeReviewError, data: removeReviewData}] = useMutation(REMOVE_REVIEW);
 
@@ -21,9 +23,6 @@ export function Reviews ({cocktailId}) {
         }
     }
 
-    const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
-        variables: {cocktailId}
-    });
     let reviews;
     if(!singleCocktailLoading){
         reviews = singleCocktailData.searchSingleCocktail.reviews.map((review, index) => {
@@ -39,24 +38,36 @@ export function Reviews ({cocktailId}) {
             }
 
             return(
-                
-                <Container key={index} size="xs">
-                    <h3>Reviewers Name: {review.writer}</h3>
-                    <h3>Stars: {filledStars}{unfilledStars}</h3>
+                <>
+                    <br></br>
+                <Card shadow="sm" p="lg" radius="md" withBorder key={index}>
+
+                    <h3>From: {review.writer}</h3>
+                    <h4>Stars: {filledStars}{unfilledStars}</h4>
                     <p><b>Review Text:</b> {review.content}</p>
                     { Auth.loggedIn() ? (
                         Auth.getProfile().data.username === review.writer ? (
-                            <Button onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete your review</Button>
-                        ) : (
-                            <b>This review is from another user</b>
-                        )
-
-                    ) : (
-                        <></>
-                    )}
-                </Container>
+                            <Button className='submit-button' onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete your review</Button>
+                            ) : (
+                                <b>This review is from another user</b>
+                                )
+                                
+                                ) : (
+                                    <></>
+                                    )}
+                </Card>
+                </>
                 
-            )
+                )
         })
     }
+    return (
+        
+            <Card shadow="sm" p="lg" radius="md" withBorder>
+                <h2 className="reviews-title text">Reviews</h2>
+
+                <div className="text">{reviews}</div>
+            </Card>
+        
+    )
 }

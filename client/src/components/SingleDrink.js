@@ -1,28 +1,49 @@
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import { Card, Text,  Group } from '@mantine/core';
+import { useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
+import { SEARCH_SINGLE_COCKTAIL } from "../utils/mutations";
 
 export function SingleDrink() {
+    let { cocktailId } = useParams();
+
+
+    const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
+        variables: {cocktailId}
+    });
+      
+    if(singleCocktailLoading) {
+        console.log("singleCocktailData is loading")
+    } else {
+        console.log(singleCocktailData);
+    }
+    let ingredientsList;
+    if(!singleCocktailLoading){
+        ingredientsList = singleCocktailData.searchSingleCocktail.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
+    }
   return (
     <Card shadow="sm" p="lg" radius="md" withBorder>
       <Card.Section component="a" href="https://mantine.dev/">
-        <Image
-          src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-          height={160}
-          alt="Norway"
-        />
+         <img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img>
       </Card.Section>
 
       <Group position="apart" mt="md" mb="xs">
-        <Text weight={500}>Norway Fjord Adventures</Text>
+        <Text weight={700}>{singleCocktailData.searchSingleCocktail.name}</Text>
+
       </Group>
 
-      <Text size="sm" color="dimmed">
-        With Fjord Tours you can explore more of the magical fjord landscapes with tours and
-        activities on and around the fjords of Norway
+      <Text size="md" >
+        <h4>Type: {singleCocktailData.searchSingleCocktail.alcoholic}</h4>
+        <h4>Glass: {singleCocktailData.searchSingleCocktail.glass}</h4>
+        <Text weight={600}>Ingredients:</Text>
+        <ul>
+            <li>{ingredientsList}</li>
+        </ul>
+        <Text weight={600}>Instructions:</Text>
+        <p>
+            {singleCocktailData.searchSingleCocktail.instructions}
+            </p> 
       </Text>
 
-      <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-       See more
-      </Button>
     </Card>
   );
 }

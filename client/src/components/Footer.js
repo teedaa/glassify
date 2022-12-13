@@ -40,8 +40,8 @@ export function Footer() {
       <img src={Logo} alt="Glassfiy logo" className="footerlogo" />
         <Group spacing={0} className={classes.links} position="right" noWrap>
           <ActionIcon size="lg">
-            <a href="https://github.com/teedaa/glassify" target="_blank" rel="noreferrer">
-            <IconBrandGithub size={18} stroke={1.5} />
+            <a className='github' href="https://github.com/teedaa/glassify" target="_blank" rel="noreferrer">
+            <IconBrandGithub size={30} stroke={1.5} />
             </a>
             </ActionIcon>
         </Group>

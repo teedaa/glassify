@@ -1,3 +1,5 @@
+
+
 .text{
   font-family: 'Montserrat', sans-serif;
 }
@@ -46,8 +48,9 @@
 }
 
 .checked {
-  color: orange;
+  color: #1f6c76;
 }
+
 
 .footerlogo {
   height:100px;
@@ -62,4 +65,22 @@
 
 .visibility-hidden {
   visibility: hidden;
+}
+
+.submit-button{
+  background-color: #04383F;
+  color:white
+}
+
+.submit-button:hover {
+  background-color: #2E4649;
+  color: white;
+}
+
+.reviews-title {
+  margin-bottom: 0px;
+}
+
+.github:visited{
+   color:#04383F;
 }

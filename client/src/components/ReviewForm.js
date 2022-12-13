@@ -39,10 +39,11 @@ export function ReviewForm() {
   });
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto">
+
       <form onSubmit={form.onSubmit((values, event)=> { handleFormSubmit(event); })}>
 
         <Textarea
+        className="text"
           withAsterisk
           label="Review"
           placeholder="Review Text"
@@ -52,13 +53,14 @@ export function ReviewForm() {
         <ReactStars 
           count={5}
           size={30}
+          activeColor="#2E4649"
           {...form.getInputProps("stars")}
         />
 
         <Group position="right" mt="md">
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="submit-button">Submit</Button>
         </Group>
       </form>
-    </Box>
+  
   );
 }

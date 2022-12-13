@@ -18,7 +18,7 @@ export function SearchBar() {
       styles={(theme) => ({
         input: {
           '&:focus-within': {
-            borderColor: theme.colors.orange[7],
+            borderColor: theme.colors.blue[7],
           },
         },
       })}

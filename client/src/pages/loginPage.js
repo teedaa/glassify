@@ -124,7 +124,7 @@ export function AuthenticationForm(props) {
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
           </Anchor>
-          <Button type="submit">{upperFirst(type)}</Button>
+          <Button className="submit-button" type="submit">{upperFirst(type)}</Button>
         </Group>
       </form>
     </Paper>

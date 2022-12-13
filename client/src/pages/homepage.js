@@ -3,7 +3,7 @@ import { Nav } from "../components/Nav";
 import { useQuery, useMutation } from '@apollo/client';
 import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL, REMOVE_COCKTAIL, ADD_REVIEW, REMOVE_REVIEW } from '../utils/mutations'
 import Auth from '../utils/auth';
-import {searchBar} from "../components/SearchBar"
+import {SearchBar} from "../components/SearchBar"
   
   
   export function Homepage() {
@@ -112,7 +112,7 @@ import {searchBar} from "../components/SearchBar"
     return (
         <>
         <Nav />
-        <searchBar />
+        <SearchBar />
         {/* <button onClick={() => saveCocktailFunction("63954552ead381f1df602e16")}> Save Cocktail Test</button>
         <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button>
         <button onClick={() => addReviewFunction("63954552ead381f1df602e16", "this drink is hella dope bro", 5)}> Add Review Test</button>

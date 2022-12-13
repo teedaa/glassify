@@ -113,14 +113,13 @@ import { Footer }  from "../components/Footer";
     return (
         <>
 
-        <Nav />
           <Nav />
-          <searchBar />
+          <SearchBar />
           {/* <button onClick={() => saveCocktailFunction("639544e9442c6c254d608e50")}> Save Cocktail Test</button> */}
           {/* <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button> */}
           {/* <button onClick={() => addReviewFunction("639544e9442c6c254d608e50", "not so good, wouldnt try unless being paid", 1)}> Add Review Test</button> */}
           {/* <button onClick={() => removeReviewFunction("63954552ead381f1df602e16", "63978f31ff02812beaf2d307")}> Remove Review Test</button> */}
-        <Footer />
+          <Footer />
         </>
     )
   }

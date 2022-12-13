@@ -12,11 +12,9 @@ export function SaveButton({cocktailId}){
           cocktailId
         }
       });
-
-      console.log( "saved drink mutation returns => ", data);
     }
 
     return (
-        <Button onClick={saveCocktailFunction}>Save Cocktail</Button>
+        <Button onClick={() => saveCocktailFunction()}>Save Cocktail</Button>
     )
 }

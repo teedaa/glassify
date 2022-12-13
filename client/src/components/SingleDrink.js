@@ -3,6 +3,8 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { SEARCH_SINGLE_COCKTAIL } from "../utils/mutations";
 import { Center } from '@mantine/core';
+import Auth from '../utils/auth';
+import { SaveButton } from './SaveButton';
 
 export function SingleDrink() {
     let { cocktailId } = useParams();
@@ -41,13 +43,18 @@ export function SingleDrink() {
         <h4>Glass: {singleCocktailData.searchSingleCocktail.glass}</h4>
         <Text weight={600} className='text'>Ingredients:</Text>
         <ul>
-            <li>{ingredientsList}</li>
+          {ingredientsList}
         </ul>
         <Text weight={600} className='text'>Instructions:</Text>
         <p>
             {singleCocktailData.searchSingleCocktail.instructions}
             </p> 
       </Text>
+      {Auth.loggedIn() ? (
+        <Center><SaveButton cocktailId={cocktailId} /></Center>
+      ) : (
+        <></>
+      )}
 
     </Card>
   );

@@ -16,10 +16,10 @@ export function Nav() {
         </Link>
           <Group>
             {Auth.loggedIn() ? (
-              <Button variant="default" onClick={logout}>Sign Out</Button>
+              <Button className="submit-button" variant="default" onClick={logout}>Sign Out</Button>
             ) : (
               <Link to="/login">
-                <Button variant="default">Log In</Button>
+                <Button className="submit-button" variant="default">Log In</Button>
               </Link>
             )}
           </Group>

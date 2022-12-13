@@ -5,6 +5,7 @@ import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL, REMOVE_COCKTAIL, ADD_REVIE
 import Auth from '../utils/auth';
 import {SearchBar} from "../components/SearchBar"
 import { Footer }  from "../components/Footer";
+import { Sidebar } from "../components/Sidebar"
   
   
   export function Homepage() {
@@ -115,7 +116,8 @@ import { Footer }  from "../components/Footer";
 
         <Nav />
           <Nav />
-          <searchBar />
+          <SearchBar />
+          <Sidebar />
           {/* <button onClick={() => saveCocktailFunction("639544e9442c6c254d608e50")}> Save Cocktail Test</button> */}
           {/* <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button> */}
           {/* <button onClick={() => addReviewFunction("639544e9442c6c254d608e50", "not so good, wouldnt try unless being paid", 1)}> Add Review Test</button> */}

@@ -3,12 +3,13 @@ import { Nav } from "../components/Nav";
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { SEARCH_SINGLE_COCKTAIL, REMOVE_REVIEW } from "../utils/mutations";
-import { Card, Container } from '@mantine/core'
+import { Card, Container, Button } from '@mantine/core'
 import { ReviewForm } from '../components/ReviewForm';
 import Auth from "../utils/auth";
 import { SingleDrink } from "../components/SingleDrink";
 import { Footer } from "../components/Footer";
 import { Portal } from '@mantine/core';
+
 
 
 
@@ -52,12 +53,12 @@ export function DrinkPage() {
 
             return(
                 <Container key={index} size="xs">
-                    <h3>Reviewers Name: {review.writer}</h3>
+                    <h3>From: {review.writer}</h3>
                     <h3>Stars: {filledStars}{unfilledStars}</h3>
-                    <p><b>Review Text:</b> {review.content}</p>
+                    <p><b>Review:</b> {review.content}</p>
                     { Auth.loggedIn() ? (
                         Auth.getProfile().data.username === review.writer ? (
-                            <button onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete your review</button>
+                            <Button className="submit-button" onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete your review</Button>
                         ) : (
                             <b>This review is from another user</b>
                         )

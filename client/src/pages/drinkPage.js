@@ -3,9 +3,13 @@ import { Nav } from "../components/Nav";
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { SEARCH_SINGLE_COCKTAIL, REMOVE_REVIEW } from "../utils/mutations";
-import { Container } from '@mantine/core'
+import { Card, Container } from '@mantine/core'
 import { ReviewForm } from '../components/ReviewForm';
 import Auth from "../utils/auth";
+import { SingleDrink } from "../components/SingleDrink";
+import { Footer } from "../components/Footer";
+import { Portal } from '@mantine/core';
+
 
 
 export function DrinkPage() {
@@ -31,16 +35,6 @@ export function DrinkPage() {
     const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
         variables: {cocktailId}
     });
-      
-    if(singleCocktailLoading) {
-        console.log("singleCocktailData is loading")
-    } else {
-        console.log(singleCocktailData);
-    }
-    let ingredientsList;
-    if(!singleCocktailLoading){
-        ingredientsList = singleCocktailData.searchSingleCocktail.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
-    }
 
     let reviews;
     if(!singleCocktailLoading){
@@ -72,6 +66,7 @@ export function DrinkPage() {
                         <></>
                     )}
                 </Container>
+                
             )
         })
     }
@@ -87,26 +82,32 @@ export function DrinkPage() {
             ) : (
                 <>
                     <Container>
-                        <h2>Cocktail Info</h2>
-                        <h3>Name: {singleCocktailData.searchSingleCocktail.name}</h3>
-                        <h3>Type: {singleCocktailData.searchSingleCocktail.alcoholic}</h3>
-                        <h3>Glass: {singleCocktailData.searchSingleCocktail.glass}</h3>
-                        <h3>Ingredients:</h3>
-                        <ul>{ingredientsList}</ul>
-                        <h3>Instructions: {singleCocktailData.searchSingleCocktail.instructions}</h3>
-
-                        <img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img>
+                       
+                        <SingleDrink></SingleDrink>
+ 
                     </Container>
+                    <br></br>
                     <Container>
-                        <h2>Reviews area</h2>
+                    <Card shadow="sm" p="lg" radius="md" withBorder>
+                        <h2 className="text">Reviews area</h2>
 
-                        {reviews}
+                        <div className="text">{reviews}</div>
+                        </Card>
                     </Container>
+                    
                     <Container>
-                        <h2>Create Review area</h2>
-                        <ReviewForm />
+                        <h2 className="text">Create Review area</h2>
+                        {Auth.loggedIn() ? (
+                            <ReviewForm />
+                        ) : (
+                            <h2 className="text">You must be logged in to leave a review</h2>
+                        )}
                         
+               
                     </Container>
+                    <Portal>
+                    <Footer />
+                    </Portal>
                 </>
             )}
         </>

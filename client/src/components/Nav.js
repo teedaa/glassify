@@ -10,7 +10,6 @@ export function Nav() {
     Auth.logout();
   };
   return (
-    <Box pb={120}>
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>    
           <img src={Logo} alt="Glassfiy logo" className="logo"  />
@@ -25,6 +24,5 @@ export function Nav() {
           </Group>
         </Group>
     </Header>
-    </Box>
   );
 }

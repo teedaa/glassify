@@ -100,7 +100,11 @@ export function DrinkPage() {
                     </Container>
                     <Container>
                         <h2>Create Review area</h2>
-                        <ReviewForm />
+                        {Auth.loggedIn() ? (
+                            <ReviewForm />
+                        ) : (
+                            <h2>You should log in if you wanna leave a review</h2>
+                        )}
                         
                     </Container>
                 </>

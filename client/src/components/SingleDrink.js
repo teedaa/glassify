@@ -31,19 +31,19 @@ export function SingleDrink() {
 
 
         <Center>
-        <Text weight={600} size="xl">{singleCocktailData.searchSingleCocktail.name}</Text>
+        <Text weight={600} size="xl" className='text'>{singleCocktailData.searchSingleCocktail.name}</Text>
         </Center>
 
       
 
-      <Text size="md" >
+      <Text size="md" className='text' >
         <h4>Type: {singleCocktailData.searchSingleCocktail.alcoholic}</h4>
         <h4>Glass: {singleCocktailData.searchSingleCocktail.glass}</h4>
-        <Text weight={600}>Ingredients:</Text>
+        <Text weight={600} className='text'>Ingredients:</Text>
         <ul>
             <li>{ingredientsList}</li>
         </ul>
-        <Text weight={600}>Instructions:</Text>
+        <Text weight={600} className='text'>Instructions:</Text>
         <p>
             {singleCocktailData.searchSingleCocktail.instructions}
             </p> 

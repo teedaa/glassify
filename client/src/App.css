@@ -49,7 +49,20 @@
   color: orange;
 }
 
+<<<<<<< HEAD
 .footerlogo {
   height:100px;
 }
 
+=======
+.invalid-credentials {
+  font-weight: bold;
+  color: red;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+>>>>>>> ab06a5713a28d58d696051b424c89682a6e0c454

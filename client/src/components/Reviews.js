@@ -44,10 +44,10 @@ export function Reviews ({cocktailId, singleCocktailLoading, singleCocktailData}
 
                     <h3>From: {review.writer}</h3>
                     <h4>Stars: {filledStars}{unfilledStars}</h4>
-                    <p><b>Review Text:</b> {review.content}</p>
+                    <p> {review.content}</p>
                     { Auth.loggedIn() ? (
                         Auth.getProfile().data.username === review.writer ? (
-                            <Button className='submit-button' onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete your review</Button>
+                            <Button className='submit-button' onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete review</Button>
                             ) : (
                                 <b>This review is from another user</b>
                                 )

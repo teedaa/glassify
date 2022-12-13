@@ -2,22 +2,12 @@ import React, { useState } from 'react';
 import { Card, Text,  Group } from '@mantine/core';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { SEARCH_SINGLE_COCKTAIL, USER } from "../utils/mutations";
+import { SEARCH_SINGLE_COCKTAIL} from "../utils/mutations";
 import { Center } from '@mantine/core';
-import Auth from '../utils/auth';
-import { SaveButton } from './SaveButton';
-import { RemoveButton } from './RemoveButton';
+import { AddRemoveButton } from './AddRemoveButton';
 
 export function SingleDrink() {
   let { cocktailId } = useParams();
-  let currentlySaved = false
-
-  const {loading: currentUserLoading, data: currentUserData} = useQuery(USER);
-  if(Auth.loggedIn() && !currentUserLoading) {
-    if(!currentUserData.user.savedCocktails.some((obj) => obj._id === cocktailId)) {
-      currentlySaved = true
-    }
-  }
 
   const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
       variables: {cocktailId}
@@ -55,18 +45,7 @@ export function SingleDrink() {
             {singleCocktailData.searchSingleCocktail.instructions}
             </p> 
       </Text>
-      {Auth.loggedIn() ? (
-        <>
-          {currentlySaved ? (
-            <Center><SaveButton cocktailId={cocktailId} /></Center>
-          ) : (
-            <Center><RemoveButton cocktailId={cocktailId} /></Center>
-          )}
-        </>
-      ) : (
-        <></>
-      )}
-
+      <AddRemoveButton cocktailId={cocktailId}/>
     </Card>
   );
 }

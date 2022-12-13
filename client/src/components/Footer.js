@@ -1,7 +1,6 @@
 import { createStyles, Container, Group, ActionIcon, Affix, Flex } from '@mantine/core';
 import { IconBrandGithub } from '@tabler/icons';
 import Logo from "../images/glassifylogo.png";
-import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {

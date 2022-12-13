@@ -39,7 +39,7 @@ export function ReviewForm() {
   });
 
   return (
-    <Box sx={{ maxWidth: 300 }} mx="auto" className="text">
+
       <form onSubmit={form.onSubmit((values, event)=> { handleFormSubmit(event); })}>
 
         <Textarea
@@ -61,6 +61,6 @@ export function ReviewForm() {
           <Button type="submit" className="submit-button">Submit</Button>
         </Group>
       </form>
-    </Box>
+  
   );
 }

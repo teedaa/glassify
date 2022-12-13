@@ -1,26 +1,23 @@
+import React, { useState } from 'react';
 import { Card, Text,  Group } from '@mantine/core';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { SEARCH_SINGLE_COCKTAIL } from "../utils/mutations";
+import { SEARCH_SINGLE_COCKTAIL} from "../utils/mutations";
 import { Center } from '@mantine/core';
+import { AddRemoveButton } from './AddRemoveButton';
 
 export function SingleDrink() {
-    let { cocktailId } = useParams();
+  let { cocktailId } = useParams();
 
+  const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
+      variables: {cocktailId}
+  });
+    
 
-    const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
-        variables: {cocktailId}
-    });
-      
-    if(singleCocktailLoading) {
-        console.log("singleCocktailData is loading")
-    } else {
-        console.log(singleCocktailData);
-    }
-    let ingredientsList;
-    if(!singleCocktailLoading){
-        ingredientsList = singleCocktailData.searchSingleCocktail.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
-    }
+  let ingredientsList;
+  if(!singleCocktailLoading){
+      ingredientsList = singleCocktailData.searchSingleCocktail.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
+  }
   return (
 
     <Card shadow="sm" p="lg" radius="md" withBorder>
@@ -41,14 +38,14 @@ export function SingleDrink() {
         <h4>Glass: {singleCocktailData.searchSingleCocktail.glass}</h4>
         <Text weight={600} className='text'>Ingredients:</Text>
         <ul>
-            <li>{ingredientsList}</li>
+          {ingredientsList}
         </ul>
         <Text weight={600} className='text'>Instructions:</Text>
         <p>
             {singleCocktailData.searchSingleCocktail.instructions}
             </p> 
       </Text>
-
+      <AddRemoveButton cocktailId={cocktailId}/>
     </Card>
   );
 }

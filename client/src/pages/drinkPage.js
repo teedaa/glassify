@@ -3,7 +3,7 @@ import { Nav } from "../components/Nav";
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { SEARCH_SINGLE_COCKTAIL, REMOVE_REVIEW } from "../utils/mutations";
-import { Container } from '@mantine/core'
+import { Card, Container } from '@mantine/core'
 import { ReviewForm } from '../components/ReviewForm';
 import Auth from "../utils/auth";
 import { SingleDrink } from "../components/SingleDrink";
@@ -93,17 +93,20 @@ export function DrinkPage() {
                         <SingleDrink></SingleDrink>
  
                     </Container>
+                    <br></br>
                     <Container>
-                        <h2>Reviews area</h2>
+                    <Card shadow="sm" p="lg" radius="md" withBorder>
+                        <h2 className="text">Reviews area</h2>
 
-                        {reviews}
+                        <div className="text">{reviews}</div>
+                        </Card>
                     </Container>
                     <Container>
-                        <h2>Create Review area</h2>
+                        <h2 className="text">Create Review area</h2>
                         {Auth.loggedIn() ? (
                             <ReviewForm />
                         ) : (
-                            <h2>You should log in if you wanna leave a review</h2>
+                            <h2 className="text">You must be logged in to leave a review</h2>
                         )}
                         
                     </Container>

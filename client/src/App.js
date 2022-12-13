@@ -54,7 +54,7 @@ function App() {
           />
 
           <Route 
-          path="/drink/:drinkid"
+          path="/cocktail/:cocktailId"
           element={<DrinkPage />}
           />
 

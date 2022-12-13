@@ -42,3 +42,7 @@
 .logo {
   height: 100%;
 }
+
+.checked {
+  color: orange;
+}

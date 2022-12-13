@@ -7,6 +7,8 @@ import { Card, Container } from '@mantine/core'
 import { ReviewForm } from '../components/ReviewForm';
 import Auth from "../utils/auth";
 import { SingleDrink } from "../components/SingleDrink";
+import { Footer } from "../components/Footer";
+import { Portal } from '@mantine/core';
 
 
 
@@ -33,16 +35,6 @@ export function DrinkPage() {
     const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
         variables: {cocktailId}
     });
-      
-    if(singleCocktailLoading) {
-        console.log("singleCocktailData is loading")
-    } else {
-        console.log(singleCocktailData);
-    }
-    let ingredientsList;
-    if(!singleCocktailLoading){
-        ingredientsList = singleCocktailData.searchSingleCocktail.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
-    }
 
     let reviews;
     if(!singleCocktailLoading){
@@ -74,6 +66,7 @@ export function DrinkPage() {
                         <></>
                     )}
                 </Container>
+                
             )
         })
     }
@@ -101,6 +94,7 @@ export function DrinkPage() {
                         <div className="text">{reviews}</div>
                         </Card>
                     </Container>
+                    
                     <Container>
                         <h2 className="text">Create Review area</h2>
                         {Auth.loggedIn() ? (
@@ -109,7 +103,11 @@ export function DrinkPage() {
                             <h2 className="text">You must be logged in to leave a review</h2>
                         )}
                         
+               
                     </Container>
+                    <Portal>
+                    <Footer />
+                    </Portal>
                 </>
             )}
         </>

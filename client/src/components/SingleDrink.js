@@ -2,6 +2,7 @@ import { Card, Text,  Group } from '@mantine/core';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { SEARCH_SINGLE_COCKTAIL } from "../utils/mutations";
+import { Center } from '@mantine/core';
 
 export function SingleDrink() {
     let { cocktailId } = useParams();
@@ -21,15 +22,19 @@ export function SingleDrink() {
         ingredientsList = singleCocktailData.searchSingleCocktail.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
     }
   return (
+
     <Card shadow="sm" p="lg" radius="md" withBorder>
-      <Card.Section component="a" href="https://mantine.dev/">
-         <img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img>
+      <Card.Section>
+        <br></br>
+         <Center><img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img></Center>
       </Card.Section>
 
-      <Group position="apart" mt="md" mb="xs">
-        <Text weight={700}>{singleCocktailData.searchSingleCocktail.name}</Text>
 
-      </Group>
+        <Center>
+        <Text weight={600} size="xl">{singleCocktailData.searchSingleCocktail.name}</Text>
+        </Center>
+
+      
 
       <Text size="md" >
         <h4>Type: {singleCocktailData.searchSingleCocktail.alcoholic}</h4>

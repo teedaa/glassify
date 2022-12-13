@@ -89,15 +89,7 @@ export function DrinkPage() {
             ) : (
                 <>
                     <Container>
-                        <h2>Cocktail Info</h2>
-                        <h3>Name: {singleCocktailData.searchSingleCocktail.name}</h3>
-                        <h3>Type: {singleCocktailData.searchSingleCocktail.alcoholic}</h3>
-                        <h3>Glass: {singleCocktailData.searchSingleCocktail.glass}</h3>
-                        <h3>Ingredients:</h3>
-                        <ul>{ingredientsList}</ul>
-                        <h3>Instructions: {singleCocktailData.searchSingleCocktail.instructions}</h3>
-
-                        <img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img>
+                       
                         <SingleDrink></SingleDrink>
  
                     </Container>

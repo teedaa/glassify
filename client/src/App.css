@@ -163,6 +163,10 @@
 	text-decoration: inherit;
 }
 
+.search {
+  text-align: center;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;

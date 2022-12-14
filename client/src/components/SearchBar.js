@@ -35,8 +35,9 @@ export function SearchBar() {
     <Container>
       <Box sx={{ maxWidth: 300 }} mx="auto">
         <form onSubmit={form.onSubmit(async (values) => await submitHandler(values))}>
-          <TextInput
-            label="Cocktail search" className='text'
+          <h2 className='search text'>Cocktail Search</h2>
+          <TextInput 
+             className='text'
             placeholder="Cocktail name"
             {...form.getInputProps('search')}
           />

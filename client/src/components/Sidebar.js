@@ -1,13 +1,28 @@
 import React, { useState } from "react";
 import { Drawer, Button, Group, ScrollArea, Stack } from "@mantine/core";
 import { BurgerComponent } from "./Burger";
-// import { useDisclosure } from '@mantine/hooks';
 import { SavedDrinkCard } from "./SavedDrinkCard";
+import { USER } from "../utils/mutations";
+import Auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
 
 const drinkList = "This is the saved drinks list";
 const ingredientsList = "This is the ingredients list";
 
 export function Sidebar() {
+	const { loading: currentUserLoading, data: currentUserData } = useQuery(USER);
+	if (Auth.loggedIn()) {
+		if (currentUserLoading) {
+			console.log("currentUserData is loading");
+		}
+
+		if (!currentUserLoading) {
+			console.log(currentUserData);
+		}
+	} else {
+		console.log("to see user data, log in");
+	}
+
 	const [opened, setOpened] = useState(false);
 	const [title, setTitle] = useState("Saved Drinks");
 	const [content, setContent] = useState(drinkList);
@@ -38,26 +53,24 @@ export function Sidebar() {
 				padding="xl"
 				size="25%"
 			>
-				<Stack justify="flex-start">
+				<Stack className="sidebar" justify="flex-start">
 					<ScrollArea.Autosize
-						// maxHeight={500}
+						maxHeight={1000}
+						// minWidth={25%}
 						sx={{ maxWidth: 500 }}
 						mx="auto"
 						offsetScrollbars
 					>
-						<p>{content}</p>
-						<SavedDrinkCard />
-						<p>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</p>
-						{/* <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p> */}
-						{/* <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p> */}
+						{Auth.loggedIn() && !currentUserLoading ? (
+							<>
+								{currentUserData.user.savedCocktails.map((cocktail) => (
+									<SavedDrinkCard cocktail={cocktail} />
+								))}
+							</>
+						) : (
+							<h2>"log in to see saved drinks"</h2>
+						)}
+						{/* <SavedDrinkCard /> */}
 					</ScrollArea.Autosize>
 					<Group align="flex-end" position="center">
 						<Button

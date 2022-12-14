@@ -1,86 +1,88 @@
-
-
-.text{
-  font-family: 'Montserrat', sans-serif;
+.text {
+	font-family: "Montserrat", sans-serif;
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .logo {
-  height: 100%;
+	height: 100%;
 }
 
 .checked {
-  color: #1f6c76;
+	color: #1f6c76;
 }
 
-
 .footerlogo {
-  height:100px;
+	height: 100px;
 }
 
 .invalid-credentials {
-  font-weight: bold;
-  color: red;
-  margin-top: 2px;
-  margin-bottom: 2px;
+	font-weight: bold;
+	color: red;
+	margin-top: 2px;
+	margin-bottom: 2px;
 }
 
 .visibility-hidden {
-  visibility: hidden;
+	visibility: hidden;
 }
 
-.submit-button{
-  background-color: #04383F;
-  color:white
+.submit-button {
+	background-color: #04383f;
+	color: white;
 }
 
 .submit-button:hover {
-  background-color: #2E4649;
-  color: white;
+	background-color: #2e4649;
+	color: white;
 }
 
 .reviews-title {
-  margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 
-.github:visited{
-   color:#04383F;
+.github:visited {
+	color: #04383f;
+}
+
+.savedDrinks {
+	overflow-y: auto;
+	height: 100%;
 }

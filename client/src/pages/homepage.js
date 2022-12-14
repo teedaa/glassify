@@ -7,10 +7,12 @@ import { Footer } from "../components/Footer";
 export function Homepage() {
 
 	return (
-		<>
-			<Nav />
-			<SearchBar />
+		<div id="page-container">
+			<div id="content-wrap">
+				<Nav />
+				<SearchBar />
+			</div>
 			<Footer />
-		</>
+		</div>
 	);
 }

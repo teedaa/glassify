@@ -1,4 +1,4 @@
-import { TextInput, Button, Box, Container } from '@mantine/core';
+import { TextInput, Button, Box, Container, Center } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import React, { useEffect, useState } from 'react';
 import { SEARCH } from '../utils/query';
@@ -49,7 +49,9 @@ export function SearchBar() {
       </Box>
       <br></br>
       {(!searched || !data) ? (
-        <h2>Search to find cocktails!</h2>
+        <Center>
+          <h2>Search to find cocktails!</h2>
+        </Center>
       ) : (
         <div className="searched-drinks-container">
           {data?.searchCocktails.length !== 0 ? (

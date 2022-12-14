@@ -1,5 +1,5 @@
 import { Header, Group, Button } from "@mantine/core";
-import Logo from "../images/glassifylogo.png";
+import Logo from "../images/notext.png";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import { Sidebar } from "./Sidebar";

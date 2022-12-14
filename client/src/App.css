@@ -1,4 +1,8 @@
-.text {
+
+
+.text,
+.sidebar,
+.mantine-Drawer-title {
 	font-family: "Montserrat", sans-serif;
 }
 
@@ -43,7 +47,9 @@
 
 .logo {
 	height: 100%;
+  padding-left: 35px;
 }
+
 
 .checked {
 	color: #1f6c76;
@@ -96,6 +102,22 @@
 	height: 100%;
 }
 
+.boxes,
+.mantine-Paper-root,
+.mantine-container {
+  border: 1px solid #61787b;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.saved-drink{
+  color:white;
+  background-color: #1f6c76;
+}
+
+.card-image {
+  filter: drop-shadow(0 0 0.75rem rgb(43, 74, 75));
+  border-radius: 15px;
+}
 @media only screen and (min-width: 1400px) {
 	.mantine-Drawer-drawer {
 		min-width: 560px;

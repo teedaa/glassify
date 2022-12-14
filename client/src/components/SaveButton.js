@@ -15,6 +15,6 @@ export function SaveButton({cocktailId}){
     }
 
     return (
-        <Button onClick={() => saveCocktailFunction()}>Save Cocktail</Button>
+        <Button className="submit-button" onClick={() => saveCocktailFunction()}>Save Cocktail</Button>
     )
 }

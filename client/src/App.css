@@ -82,7 +82,16 @@
 	color: #04383f;
 }
 
-.savedDrinks {
-	overflow-y: auto;
+.full-height {
+	height: 100%;
+	/* overflow-y: scroll; */
+}
+
+.saved-drinks {
+	overflow-y: scroll;
+	height: 95%;
+}
+
+.mantine-Drawer-body {
 	height: 100%;
 }

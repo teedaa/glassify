@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Drawer, Button, Group, ScrollArea, Stack } from "@mantine/core";
+import { Drawer, Group, Stack } from "@mantine/core";
 import { BurgerComponent } from "./Burger";
 import { SavedDrinkCard } from "./SavedDrinkCard";
 import { USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 
-const drinkList = "This is the saved drinks list";
-const ingredientsList = "This is the ingredients list";
+// const drinkList = "This is the saved drinks list";
 
 export function Sidebar() {
 	const { loading: currentUserLoading, data: currentUserData } = useQuery(USER);
@@ -25,22 +24,7 @@ export function Sidebar() {
 
 	const [opened, setOpened] = useState(false);
 	const [title, setTitle] = useState("Saved Drinks");
-	const [content, setContent] = useState(drinkList);
-	function toggleTitle() {
-		if (title === "Saved Drinks") {
-			setTitle("Ingredients List");
-		} else {
-			setTitle("Saved Drinks");
-		}
-	}
-
-	function toggleContent() {
-		if (content === drinkList) {
-			setContent(ingredientsList);
-		} else {
-			setContent(drinkList);
-		}
-	}
+	// const [content, setContent] = useState(drinkList);
 
 	return (
 		<>
@@ -52,15 +36,10 @@ export function Sidebar() {
 				position="left"
 				padding="xl"
 				size="25%"
+				className="test-css"
 			>
-				<Stack className="sidebar" justify="flex-start">
-					<ScrollArea.Autosize
-						maxHeight={1000}
-						// minWidth={25%}
-						sx={{ maxWidth: 500 }}
-						mx="auto"
-						offsetScrollbars
-					>
+				<Stack className="full-height" justify="flex-start">
+					<div className="saved-drinks">
 						{Auth.loggedIn() && !currentUserLoading ? (
 							<>
 								{currentUserData.user.savedCocktails.map((cocktail) => (
@@ -70,24 +49,9 @@ export function Sidebar() {
 						) : (
 							<h2>"log in to see saved drinks"</h2>
 						)}
-						{/* <SavedDrinkCard /> */}
-					</ScrollArea.Autosize>
-					<Group align="flex-end" position="center">
-						<Button
-							onClick={() => {
-								toggleTitle();
-								toggleContent();
-							}}
-						>
-							Toggle Sidebar Content
-						</Button>
-					</Group>
+					</div>
 				</Stack>
 			</Drawer>
-
-			{/* <Group position="left">
-				<Button onClick={() => setOpened(true)}>Open Drawer</Button>
-			</Group> */}
 
 			<Group position="center">
 				<BurgerComponent

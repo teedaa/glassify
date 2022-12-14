@@ -3,13 +3,6 @@ import { RemoveButton } from "./RemoveButton";
 import { Center } from "@mantine/core";
 
 export function SavedDrinkCard({ cocktail }) {
-	// const drinkData = ({
-	//     drinkId,
-	//     imageLink,
-	//     drinkName,
-	//     alcoholic,
-	// })
-	console.log("This is the test cocktail", cocktail);
 	return (
 		<>
 			<Card shadow="sm" p="lg" radius="md" withBorder>

@@ -8,7 +8,6 @@ import { ReviewForm } from "../components/ReviewForm";
 import Auth from "../utils/auth";
 import { SingleDrink } from "../components/SingleDrink";
 import { Footer } from "../components/Footer";
-import { Portal } from "@mantine/core";
 import { Reviews } from "../components/Reviews";
 import { Center } from "@mantine/core";
 

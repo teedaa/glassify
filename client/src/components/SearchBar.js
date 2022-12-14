@@ -1,9 +1,8 @@
 import { TextInput, Button, Box, Container, Center } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SEARCH } from '../utils/query';
 import { useLazyQuery } from '@apollo/client';
-import Auth from '../utils/auth';
 import { SavedDrinkCard } from './SavedDrinkCard';
 
 
@@ -37,20 +36,20 @@ export function SearchBar() {
       <Box sx={{ maxWidth: 300 }} mx="auto">
         <form onSubmit={form.onSubmit(async (values) => await submitHandler(values))}>
           <TextInput
-            label="Cocktail search"
+            label="Cocktail search" className='text'
             placeholder="Cocktail name"
             {...form.getInputProps('search')}
           />
 
           
-            <Button className="submit-button search-button" type="submit">Search</Button>
+            <Button className="submit-button text search-button" type="submit">Search</Button>
           
         </form>
       </Box>
       <br></br>
       {(!searched || !data) ? (
         <Center>
-          <h2>Search to find cocktails!</h2>
+          <h2 className='text'>Search to find cocktails!</h2>
         </Center>
       ) : (
         <div className="searched-drinks-container">
@@ -63,7 +62,7 @@ export function SearchBar() {
               ))}
             </>
           ) : (
-            <h2>No cocktails found, try something else</h2>
+            <h2 className='text'>No cocktails found, try something else</h2>
           )}
         </div>
       )}

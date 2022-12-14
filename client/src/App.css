@@ -47,7 +47,9 @@
 
 .logo {
 	height: 100%;
+  padding-left: 35px;
 }
+
 
 .checked {
 	color: #1f6c76;

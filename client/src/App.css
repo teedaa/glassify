@@ -9,6 +9,8 @@
 	font-family: "Montserrat", sans-serif;
 }
 
+
+
 .App {
 	text-align: center;
 }
@@ -87,6 +89,8 @@
 	margin-bottom: 0px;
 }
 
+
+
 .github:visited {
 	color: #04383f;
 }
@@ -110,6 +114,11 @@
 .mantine-container {
   border: 1px solid #61787b;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mantine-Drawer-drawer {
+  background-color: #e1e1e1;
+
 }
 
 .saved-drink{

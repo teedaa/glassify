@@ -1,127 +1,137 @@
 import React from "react";
 import { Nav } from "../components/Nav";
-import { useQuery, useMutation } from '@apollo/client';
-import { SEARCH_SINGLE_COCKTAIL, USER, SAVE_COCKTAIL, REMOVE_COCKTAIL, ADD_REVIEW, REMOVE_REVIEW } from '../utils/mutations'
-import Auth from '../utils/auth';
-import {SearchBar} from "../components/SearchBar"
-import { Footer }  from "../components/Footer";
-import { Sidebar } from "../components/Sidebar"
-  
-  
-  export function Homepage() {
+import { useQuery, useMutation } from "@apollo/client";
+import {
+	SEARCH_SINGLE_COCKTAIL,
+	USER,
+	SAVE_COCKTAIL,
+	REMOVE_COCKTAIL,
+	ADD_REVIEW,
+	REMOVE_REVIEW,
+} from "../utils/mutations";
+import Auth from "../utils/auth";
+import { SearchBar } from "../components/SearchBar";
+import { Footer } from "../components/Footer";
+import { Sidebar } from "../components/Sidebar";
 
-    // ------------------ SINGLE COCKTAIL BY ID QUERY ------------------
-    const {loading: singleCocktailLoading, data: singleCocktailData} = useQuery(SEARCH_SINGLE_COCKTAIL, {
-      variables: {cocktailId: "639545138287f783c134f05c"} //replace hard coded id with variable that comes from the params
-    });
-    
-    if(singleCocktailLoading) {
-      console.log("singleCocktailData is loading")
-    } else {
-      console.log(singleCocktailData);
-    }
+export function Homepage() {
+	// ------------------ SINGLE COCKTAIL BY ID QUERY ------------------
+	const { loading: singleCocktailLoading, data: singleCocktailData } = useQuery(
+		SEARCH_SINGLE_COCKTAIL,
+		{
+			variables: { cocktailId: "639545138287f783c134f05c" }, //replace hard coded id with variable that comes from the params
+		}
+	);
 
-    // ------------------ CURRENT USER DATA QUERY ------------------
+	if (singleCocktailLoading) {
+		console.log("singleCocktailData is loading");
+	} else {
+		console.log(singleCocktailData);
+	}
 
-    const {loading: currentUserLoading, data: currentUserData} = useQuery(USER)
-    if(Auth.loggedIn()) {
-      if(currentUserLoading) {
-        console.log("currentUserData is loading")
-      }
-      
-      if(!currentUserLoading) {
-        console.log(currentUserData);
-      }
-    } else {
-      console.log("to see user data, log in")
-    }
+	// ------------------ CURRENT USER DATA QUERY ------------------
 
-    // ------------------ SAVE COCKTAIL TO LOGGED IN USER MUTATION ------------------
+	const { loading: currentUserLoading, data: currentUserData } = useQuery(USER);
+	if (Auth.loggedIn()) {
+		if (currentUserLoading) {
+			console.log("currentUserData is loading");
+		}
 
-    const [saveCocktail, {error: saveError, data: saveData}] = useMutation(SAVE_COCKTAIL);
+		if (!currentUserLoading) {
+			console.log(currentUserData);
+		}
+	} else {
+		console.log("to see user data, log in");
+	}
 
-    const saveCocktailFunction = async (cocktailId) => {
-      const { data } = await saveCocktail({
-        variables: {
-          cocktailId
-        }
-      });
+	// ------------------ SAVE COCKTAIL TO LOGGED IN USER MUTATION ------------------
 
-      console.log( "saved drink mutation returns => ", data);
-    }
+	const [saveCocktail, { error: saveError, data: saveData }] =
+		useMutation(SAVE_COCKTAIL);
 
-    if(Auth.loggedIn()) {
-      // saveCocktailFunction("63954552ead381f1df602e16"); //eventually replace the hard coded string with the cocktail ID we want to save to logged in user
-    }
+	const saveCocktailFunction = async (cocktailId) => {
+		const { data } = await saveCocktail({
+			variables: {
+				cocktailId,
+			},
+		});
 
-    // ------------------ REMOVE COCKTAIL FROM LOGGED IN USER MUTATION
+		console.log("saved drink mutation returns => ", data);
+	};
 
-    const [removeCocktail, {error: removeError, data: removeData}] = useMutation(REMOVE_COCKTAIL);
+	if (Auth.loggedIn()) {
+		// saveCocktailFunction("63954552ead381f1df602e16"); //eventually replace the hard coded string with the cocktail ID we want to save to logged in user
+	}
 
-    const removeCocktailFunction = async (cocktailId) => {
-      const { data } = await removeCocktail({
-        variables: {
-          cocktailId
-        }
-      });
+	// ------------------ REMOVE COCKTAIL FROM LOGGED IN USER MUTATION
 
-      console.log( "removed drink mutation returns => ", data);
-    }
+	const [removeCocktail, { error: removeError, data: removeData }] =
+		useMutation(REMOVE_COCKTAIL);
 
-    if(Auth.loggedIn()) {
-      // removeCocktailFunction("63954552ead381f1df602e16"); //eventually replace the hard coded string with the cocktail ID we want to remove from logged in user
-    }
+	const removeCocktailFunction = async (cocktailId) => {
+		const { data } = await removeCocktail({
+			variables: {
+				cocktailId,
+			},
+		});
 
-    // ------------------ ADD REVIEW TO COCKTAIL BY ID ------------------
+		console.log("removed drink mutation returns => ", data);
+	};
 
-    const [addReview, {error: addReviewError, data: addReviewData}] = useMutation(ADD_REVIEW);
+	if (Auth.loggedIn()) {
+		// removeCocktailFunction("63954552ead381f1df602e16"); //eventually replace the hard coded string with the cocktail ID we want to remove from logged in user
+	}
 
-    const addReviewFunction = async (cocktailId, content, stars) => {
-      const { data } = await addReview({
-        variables: {
-          cocktailId,
-          content,
-          stars
-        }
-      });
+	// ------------------ ADD REVIEW TO COCKTAIL BY ID ------------------
 
-      console.log( "add review mutation returns => ", data);
-    }
+	const [addReview, { error: addReviewError, data: addReviewData }] =
+		useMutation(ADD_REVIEW);
 
-    if(Auth.loggedIn()) {
-      // addReviewFunction("63954552ead381f1df602e16", "this drink is hella dope", 5); //eventually replace the hard coded data with variables
-    }
+	const addReviewFunction = async (cocktailId, content, stars) => {
+		const { data } = await addReview({
+			variables: {
+				cocktailId,
+				content,
+				stars,
+			},
+		});
 
-    // ------------------ REMOVE REVIEW FROM COCKTAIL BY ID ------------------
+		console.log("add review mutation returns => ", data);
+	};
 
-    const [removeReview, {error: removeReviewError, data: removeReviewData}] = useMutation(REMOVE_REVIEW);
+	if (Auth.loggedIn()) {
+		// addReviewFunction("63954552ead381f1df602e16", "this drink is hella dope", 5); //eventually replace the hard coded data with variables
+	}
 
-    const removeReviewFunction = async (cocktailId, reviewId) => {
-      const { data } = await removeReview({
-        variables: {
-          cocktailId,
-          reviewId
-        }
-      });
+	// ------------------ REMOVE REVIEW FROM COCKTAIL BY ID ------------------
 
-      console.log( "remove review mutation returns => ", data);
-    }
+	const [removeReview, { error: removeReviewError, data: removeReviewData }] =
+		useMutation(REMOVE_REVIEW);
 
-    if(Auth.loggedIn()) {
-      // removeReviewFunction("63954552ead381f1df602e16", "63978bb8ff02812beaf2d2ec"); //eventually replace the hard coded data with variables
-    }
+	const removeReviewFunction = async (cocktailId, reviewId) => {
+		const { data } = await removeReview({
+			variables: {
+				cocktailId,
+				reviewId,
+			},
+		});
 
-    return (
-        <>
+		console.log("remove review mutation returns => ", data);
+	};
 
-          <Nav />
-          <SearchBar />
-          <Sidebar />
-          {/* <button onClick={() => saveCocktailFunction("639544e9442c6c254d608e50")}> Save Cocktail Test</button> */}
-          {/* <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button> */}
-          {/* <button onClick={() => addReviewFunction("639544e9442c6c254d608e50", "not so good, wouldnt try unless being paid", 1)}> Add Review Test</button> */}
-          {/* <button onClick={() => removeReviewFunction("63954552ead381f1df602e16", "63978f31ff02812beaf2d307")}> Remove Review Test</button> */}
-          <Footer />
-        </>
-    )
-  }
+	if (Auth.loggedIn()) {
+		// removeReviewFunction("63954552ead381f1df602e16", "63978bb8ff02812beaf2d2ec"); //eventually replace the hard coded data with variables
+	}
+
+	return (
+		<>
+			<Nav />
+			<SearchBar />
+			{/* <button onClick={() => saveCocktailFunction("639544e9442c6c254d608e50")}> Save Cocktail Test</button> */}
+			{/* <button onClick={() => removeCocktailFunction("63954552ead381f1df602e16")}> Remove Cocktail Test</button> */}
+			{/* <button onClick={() => addReviewFunction("639544e9442c6c254d608e50", "not so good, wouldnt try unless being paid", 1)}> Add Review Test</button> */}
+			{/* <button onClick={() => removeReviewFunction("63954552ead381f1df602e16", "63978f31ff02812beaf2d307")}> Remove Review Test</button> */}
+			<Footer />
+		</>
+	);
+}

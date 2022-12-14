@@ -36,7 +36,7 @@ export function Sidebar() {
 				position="left"
 				padding="xl"
 				size="25%"
-				className="test-css"
+				className="sidebar"
 			>
 				<Stack className="full-height" justify="flex-start">
 					<div className="saved-drinks">
@@ -47,7 +47,7 @@ export function Sidebar() {
 								))}
 							</>
 						) : (
-							<h2>"log in to see saved drinks"</h2>
+							<h2>Please log in to see saved drinks"</h2>
 						)}
 					</div>
 				</Stack>

@@ -44,7 +44,7 @@ export function DrinkPage() {
                     <br></br>
 
                     <Container>
-                    <Card shadow="sm" p="lg" radius="md" withBorder>
+                    <Card shadow="sm" p="lg" radius="md" withBorder className="boxes">
                         <>
                             <h2 className="text">Leave a review</h2>
                             {Auth.loggedIn() ? (

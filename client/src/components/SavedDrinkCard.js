@@ -11,8 +11,8 @@ export function SavedDrinkCard({ cocktail }) {
 				</Card.Section>
 
 				<Group position="apart" mt="md" mb="xs">
-					<Text weight={500}>{cocktail.name}</Text>
-					<Badge color="pink" variant="light">
+					<Text className="text" weight={500}>{cocktail.name}</Text>
+					<Badge className="saved-drink" variant="light">
 						{cocktail.alcoholic}
 					</Badge>
 				</Group>

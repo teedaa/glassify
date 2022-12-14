@@ -20,7 +20,7 @@ export function SingleDrink() {
   }
   return (
 
-    <Card shadow="sm" p="lg" radius="md" withBorder>
+    <Card shadow="sm" p="lg" radius="md" withBorder className="boxes">
       <Card.Section>
         <br></br>
          <Center><img src={singleCocktailData.searchSingleCocktail.image} alt={singleCocktailData.searchSingleCocktail.name} height="250"></img></Center>

@@ -39,7 +39,7 @@ export function Reviews ({cocktailId, singleCocktailLoading, singleCocktailData}
             return(
                 <>
                     <br></br>
-                <Card shadow="sm" p="lg" radius="md" withBorder key={index}>
+                <Card shadow="sm" className="review card" p="lg" radius="md" withBorder key={index}>
 
                     <h3>From: {review.writer}</h3>
                     <h4>Stars: {filledStars}{unfilledStars}</h4>

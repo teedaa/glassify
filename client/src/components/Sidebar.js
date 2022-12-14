@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Drawer, Group, Stack } from "@mantine/core";
 import { BurgerComponent } from "./Burger";
 import { SavedDrinkCard } from "./SavedDrinkCard";
-import { USER } from "../utils/mutations";
+import { USER } from "../utils/query";
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 
@@ -10,17 +10,6 @@ import { useQuery } from "@apollo/client";
 
 export function Sidebar() {
 	const { loading: currentUserLoading, data: currentUserData } = useQuery(USER);
-	if (Auth.loggedIn()) {
-		if (currentUserLoading) {
-			console.log("currentUserData is loading");
-		}
-
-		if (!currentUserLoading) {
-			console.log(currentUserData);
-		}
-	} else {
-		console.log("to see user data, log in");
-	}
 
 	const [opened, setOpened] = useState(false);
 	const [title, setTitle] = useState("Saved Drinks");

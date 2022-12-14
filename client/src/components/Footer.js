@@ -34,8 +34,7 @@ export function Footer() {
   const { classes } = useStyles();
 
   return (
-    //   <Affix position={{ bottom: 20 }}>
-      <div className={classes.footer}>
+    <footer id="footer" className={classes.footer}>
       <Container className={classes.inner}>
       <img src={Logo} alt="Glassfiy logo" className="footerlogo" />
         <Group spacing={0} className={classes.links} position="right" noWrap>
@@ -46,7 +45,6 @@ export function Footer() {
             </ActionIcon>
         </Group>
       </Container>
-    </div>
-    // </Affix>
+    </footer>
   );
 }

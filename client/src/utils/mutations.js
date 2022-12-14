@@ -25,44 +25,6 @@ mutation createUser($username: String!, $password: String!) {
 }
 `
 
-export const SEARCH_SINGLE_COCKTAIL = gql`
-query searchSingleCocktail($cocktailId: ID!) {
-  searchSingleCocktail(cocktailId: $cocktailId) {
-    name
-    _id
-    alcoholic
-    glass
-    image
-    ingredients
-    instructions
-    reviews {
-      writer
-      stars
-      content
-      _id
-    }
-  }
-}
-`;
-
-export const USER = gql`
-query user {
-  user {
-    username
-    savedCocktails {
-      _id
-      alcoholic
-      image
-      ingredients
-      glass
-      instructions
-      name
-    }
-    _id
-  }
-}
-`;
-
 export const SAVE_COCKTAIL = gql`
 mutation saveCocktail($cocktailId: ID!) {
   saveCocktail(cocktailId: $cocktailId) {

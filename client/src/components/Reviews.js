@@ -17,7 +17,6 @@ export function Reviews ({cocktailId, singleCocktailLoading, singleCocktailData}
                   reviewId
                 }
               });
-            console.log(data);
         } catch (error) {
             console.error(error);
         }

@@ -101,12 +101,18 @@
 }
 
 .boxes,
-.mantine-Paper-root {
-  border: 1px solid #04383f;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 15%), rgb(0 0 0 / 15%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 14px 14px -5px;
+.mantine-Paper-root,
+.mantine-container {
+  border: 1px solid #61787b;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .saved-drink{
-  color:#cbf9ff;
+  color:white;
   background-color: #1f6c76;
+}
+
+.card-image {
+  filter: drop-shadow(0 0 0.75rem rgb(43, 74, 75));
+  border-radius: 15px;
 }

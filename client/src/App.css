@@ -102,6 +102,7 @@
 	height: 100%;
 }
 
+<<<<<<< HEAD
 .boxes,
 .mantine-Paper-root,
 .mantine-container {
@@ -118,3 +119,23 @@
   filter: drop-shadow(0 0 0.75rem rgb(43, 74, 75));
   border-radius: 15px;
 }
+=======
+@media only screen and (min-width: 1400px) {
+	.mantine-Drawer-drawer {
+		min-width: 560px;
+	}
+}
+
+@media only screen and (max-width: 1400px) {
+	.mantine-Drawer-drawer {
+		width: 40%;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.mantine-Drawer-drawer {
+		width: 40%;
+		min-width: 350px;
+	}
+}
+>>>>>>> 0580df294a0a69aa0d8dfbb3909b95e750271508

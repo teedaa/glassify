@@ -1,9 +1,9 @@
 import React from "react";
 import { Nav } from "../components/Nav";
 import { useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { SEARCH_SINGLE_COCKTAIL, REMOVE_REVIEW } from "../utils/mutations";
-import { Card, Container, Button, BackgroundImage } from '@mantine/core'
+import { useQuery  } from '@apollo/client';
+import { SEARCH_SINGLE_COCKTAIL } from "../utils/query";
+import { Card, Container } from '@mantine/core'
 import { ReviewForm } from '../components/ReviewForm';
 import Auth from "../utils/auth";
 import { SingleDrink } from "../components/SingleDrink";

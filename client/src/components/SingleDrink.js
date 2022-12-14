@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Card, Text,  Group } from '@mantine/core';
+import React from 'react';
+import { Card, Text } from '@mantine/core';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { SEARCH_SINGLE_COCKTAIL} from "../utils/mutations";
+import { SEARCH_SINGLE_COCKTAIL} from "../utils/query";
 import { Center } from '@mantine/core';
 import { AddRemoveButton } from './AddRemoveButton';
 

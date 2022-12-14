@@ -20,7 +20,6 @@ export function ReviewForm() {
           stars: form.values.stars
         }
       });
-      console.log(data)
       form.reset();
     } catch (error) {
       console.error(error);

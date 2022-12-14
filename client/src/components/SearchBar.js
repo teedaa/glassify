@@ -1,37 +1,38 @@
-import { Input } from '@mantine/core';
-import { Button } from '@mantine/core';
-import { useToggle } from '@mantine/hooks';
+import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useToggle } from '@mantine/hooks';
 import { useMutation } from '@apollo/client';
+import React from 'react';
 
 
 
 export function SearchBar() {
 
-  // const [type, toggle] = useToggle(['search']);
-  // const form = useForm({
+    const form = useForm({
+    initialValues: {
+      search: '',
+      
+    },
 
+  });
 
   return (
-    <Input
-      placeholder="Search for a product"
-      styles={(theme) => ({
-        input: {
-          '&:focus-within': {
-            borderColor: theme.colors.blue[7],
-          },
-        },
-      })}
-    />
-    
+    <Box sx={{ maxWidth: 300 }} mx="auto">
+      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+        <TextInput
+          label="Cocktail search"
+          placeholder="Cocktail name"
+          {...form.getInputProps('search')}
+        />
+
+        <Group position="right" mt="md">
+          <Button type="submit">Submit</Button>
+        </Group>
+      </form>
+    </Box>
   );
+
 };
 
 
-// export function SearchBar() {
-//     return (
-//       <>
-//         <Button variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }}>Teal blue</Button>
-//             </>
-//     );
-//   };
+  

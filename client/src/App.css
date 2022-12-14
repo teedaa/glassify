@@ -1,4 +1,4 @@
-#root{
+#root {
 	max-width: 100vw;
 	overflow-x: hidden;
 }
@@ -50,9 +50,8 @@
 
 .logo {
 	height: 100%;
-  padding-left: 35px;
+	padding-left: 35px;
 }
-
 
 .checked {
 	color: #1f6c76;
@@ -108,18 +107,18 @@
 .boxes,
 .mantine-Paper-root,
 .mantine-container {
-  border: 1px solid #61787b;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 1px solid #61787b;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.saved-drink{
-  color:white;
-  background-color: #1f6c76;
+.saved-drink {
+	color: white;
+	background-color: #1f6c76;
 }
 
 .card-image {
-  filter: drop-shadow(0 0 0.75rem rgb(43, 74, 75));
-  border-radius: 15px;
+	filter: drop-shadow(0 0 0.75rem rgb(43, 74, 75));
+	border-radius: 15px;
 }
 @media only screen and (min-width: 1400px) {
 	.mantine-Drawer-drawer {
@@ -136,10 +135,9 @@
 @media only screen and (max-width: 900px) {
 	.mantine-Drawer-drawer {
 		width: 40%;
-		min-width: 350px;
+		min-width: 250px;
 	}
 }
-
 
 .search-button {
 	width: 100%;
@@ -162,18 +160,18 @@
 }
 
 #page-container {
-  position: relative;
-  min-height: 100vh;
+	position: relative;
+	min-height: 100vh;
 }
 
 #content-wrap {
-  padding-bottom: 10rem;    /* Footer height */
+	padding-bottom: 10rem; /* Footer height */
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 9rem;    
-  /* background-color: white; */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 9rem;
+	/* background-color: white; */
 }

@@ -8,7 +8,7 @@ export function SavedDrinkCard({ cocktail }) {
 	return (
 		<>
 			<Card shadow="sm" p="lg" radius="md" withBorder>
-				<Card.Section component="a" href="https://mantine.dev/">
+				<Card.Section>
 					<Link to={`/cocktail/${cocktail._id}`}>
 						<Image src={cocktail.image} height={300} alt={cocktail.name} />
 					</Link>
@@ -16,7 +16,9 @@ export function SavedDrinkCard({ cocktail }) {
 
 				<Group position="apart" mt="md" mb="xs">
 					<Link className="link-restyle" to={`/cocktail/${cocktail._id}`}>
-						<Text className="link-restyle text" weight={500}>{cocktail.name}</Text>
+						<Text className="link-restyle text" weight={500}>
+							{cocktail.name}
+						</Text>
 					</Link>
 					<Badge className="saved-drink" variant="light">
 						{cocktail.alcoholic}

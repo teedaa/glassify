@@ -6,21 +6,16 @@ import { USER } from "../utils/query";
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 
-// const drinkList = "This is the saved drinks list";
-
 export function Sidebar() {
 	const { loading: currentUserLoading, data: currentUserData } = useQuery(USER);
-
 	const [opened, setOpened] = useState(false);
 	const [title, setTitle] = useState("Saved Drinks");
-	// const [content, setContent] = useState(drinkList);
 
 	return (
 		<>
 			<Drawer
 				opened={opened}
 				onClose={() => setOpened(false)}
-				// title will be where we switch the List Title
 				title={title}
 				position="left"
 				padding="xl"

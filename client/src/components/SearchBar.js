@@ -42,7 +42,6 @@ export function SearchBar() {
             {...form.getInputProps('search')}
           />
 
-          
             <Button className="submit-button text search-button" type="submit">Search</Button>
           
         </form>
@@ -53,12 +52,12 @@ export function SearchBar() {
           <h2 className='text'>Search to find cocktails!</h2>
         </Center>
       ) : (
-        <div className="searched-drinks-container">
+        <div className="searched-drinks-container ">
           {data?.searchCocktails.length !== 0 ? (
             <>
               {data.searchCocktails.map((cocktail) => (
-                <div className="searched-drink">
-                  <SavedDrinkCard cocktail={cocktail} />
+                <div className="searched-drink ">
+                  <SavedDrinkCard className="" cocktail={cocktail} />
                 </div>
               ))}
             </>

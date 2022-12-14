@@ -152,9 +152,17 @@
 
 .search-button {
 	width: 100%;
+ margin-top: 10px;
 }
 
+.col-container {
+  display: table; /* Make the container element behave like a table */
+  width: 100%; /* Set full-width to expand the whole page */
+}
 
+.col {
+  display: table-cell; /* Make elements inside the container behave like table cells */
+}
 
 .searched-drink {
 	width: 45%;

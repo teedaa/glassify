@@ -47,7 +47,7 @@ export function Sidebar() {
 								))}
 							</>
 						) : (
-							<h2>Please log in to see saved drinks"</h2>
+							<h2>Please log in to see saved drinks!"</h2>
 						)}
 					</div>
 				</Stack>

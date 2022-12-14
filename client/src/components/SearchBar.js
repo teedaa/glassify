@@ -1,9 +1,8 @@
 import { TextInput, Button, Box, Container, Center } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SEARCH } from '../utils/query';
 import { useLazyQuery } from '@apollo/client';
-import Auth from '../utils/auth';
 import { SavedDrinkCard } from './SavedDrinkCard';
 
 

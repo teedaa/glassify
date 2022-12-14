@@ -1,6 +1,6 @@
 import React from 'react';
 import { REMOVE_REVIEW } from "../utils/mutations";
-import { Card, Container, Button } from '@mantine/core'
+import { Card, Button } from '@mantine/core'
 import { useMutation } from '@apollo/client';
 import Auth from "../utils/auth";
 
@@ -48,7 +48,7 @@ export function Reviews ({cocktailId, singleCocktailLoading, singleCocktailData}
                         Auth.getProfile().data.username === review.writer ? (
                             <Button className='submit-button' onClick={(event) => {handleRemoveReview(event, review._id)}}>Delete review</Button>
                             ) : (
-                                <b>This review is from another user</b>
+                             <></>
                                 )
                                 
                                 ) : (

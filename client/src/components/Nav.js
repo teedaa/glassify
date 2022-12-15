@@ -3,6 +3,7 @@ import Logo from "../images/notext.png";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import { Sidebar } from "./Sidebar";
+import { Center } from "@mantine/core";
 
 export function Nav() {
 	const logout = (event) => {

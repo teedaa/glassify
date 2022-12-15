@@ -10,7 +10,7 @@ export function Nav() {
 		Auth.logout();
 	};
 	return (
-		<Header id="header" height={60} px="md">
+		<Header id="header" height={110} px="md">
 			<Group position="apart" sx={{ height: "100%" }}>
 				<Sidebar />
 				<Link to="/" className="logo">

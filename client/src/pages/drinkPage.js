@@ -31,7 +31,7 @@ export function DrinkPage() {
         </Container>
       ) : (
         <>
-          <Container>
+          <Container id="main-box">
             <SingleDrink></SingleDrink>
           </Container>
           <br></br>

@@ -4,7 +4,7 @@ import { AddRemoveButton } from "./AddRemoveButton";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
-export function SavedDrinkCard({ cocktail }) {
+export function SavedDrinkCard({ cocktail, className }) {
 	return (
 		<>
 			<Card shadow="sm" p="lg" radius="md" withBorder>

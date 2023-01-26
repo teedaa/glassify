@@ -25,7 +25,7 @@ export function SearchBar() {
 		});
 	};
 
-	console.log(data);
+	// console.log(data);
 
 	return (
 		<Container>
@@ -53,13 +53,24 @@ export function SearchBar() {
 					<h2 className="text">Search to find cocktails!</h2>
 				</Center>
 			) : (
-				<div className="searched-drinks-container ">
+				<div className="searched-drinks-container">
 					{data?.searchCocktails.length !== 0 ? (
 						<>
-							{data.searchCocktails.map((cocktail) => (
-								<div className="searched-drink ">
+							{data.searchCocktails.map((cocktail, index) => (
+								<>
+								<div className="searched-drink">
 									<SavedDrinkCard className="" cocktail={cocktail} />
 								</div>
+								{
+									((index === data.searchCocktails.length - 1) && (data.searchCocktails.length % 2 !== 0) ? (
+										<div className="searched-drink hidden">
+											<SavedDrinkCard className="" cocktail={cocktail} />
+										</div>
+									) : (
+										<></>
+									))
+								}
+								</>
 							))}
 						</>
 					) : (

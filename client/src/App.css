@@ -184,6 +184,9 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+.hidden {
+	visibility: hidden;
+}
 
 .link-restyle {
 	color: inherit;
@@ -218,3 +221,4 @@
 	height: 9rem;
 	background-color: #e1e1e1;
 }
+
